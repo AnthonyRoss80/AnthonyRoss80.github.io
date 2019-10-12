@@ -11,9 +11,9 @@
     <div class="wrapper">
       <div class="header">Test JSON page</div>
       <!-- <button class="button" onclick="loadData()">Load Some JSON</button> -->
-      <button id="myBtn" class="button" onclick="adjust">Click me to replace list entries</button>
+      <button id="myBtn" class="button" onclick="adjust()">Click me to replace list entries</button>
       <div class="content">
-        <ul id="dynamic_list" class="instructions">
+        <ul class="instructions">
             <li>At the click of the button above</li>
             <li>Replace this list</li>
             <li>With an ordered list</li>
@@ -26,7 +26,7 @@
                 <li>Write it into your copy of the Lab HTML</li>
                 <li>And save it for submission</li>
             </ol>
-        </ul>
+          </ul>
       </div>
       <div class="footer"></div>
     </div>
@@ -280,19 +280,21 @@
     ]
     console.log("List of countries in the world", countries);
     sessionStorage.setItem("data_stored", countries);
-    function getRandomArbitrary(min,max){
-      return Math.random() * (max-min) + min;
+    function getRandomArbitrary(0,242){
+      return Math.random() * (242-0) + 0;
     }
+
     function adjust() {
       const countries_code = sessionStorage.getItem("data_stored");
       const list = JSON.parse(countries_code);
       const element = document.querySelector('.instructions');
-      const htmlArray = list.map((i) => {
-      });
-      const coun_name = [];
-    for (let i = 0; i< list.length; i += 1){
-      coun_name[i] = list[i].name;
-    }
+      const htmlArray = list.map((i) => i.name);
+      var string = "";
+      for (let i = 0; i < 50; i++){
+        string.innerText = htmlArray[getRandomArbitrary()]
+      }
+      element.innerHTML = "<ol>"+ string +"</ol>";
+      instructions.appendChild(element);
     }
     
   </script>
