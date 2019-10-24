@@ -37,7 +37,7 @@
       let el = document.createElement("li");
       el.innerText = nameArray[selectNumber];
 
-      instructions.appendChild(el);
+      countries_code.appendChild(el);
     };
 
   }
@@ -53,24 +53,3 @@
 </body>
 
 </html>
-
-
-function loadData()
-.then(res => res.json())
-.then(res => {
-  function clickMe() {
-    const json = sessionStorage.getItem('countries_arr');
-    const list = JSON.parse(json);
-
-    const nameArray = list.map((i) => i.name);
-    
-    const instructions = document.querySelector('.instructions');
-    instructions.innerHTML = '';
-    
-
-
-  return res;
-})
-.then(data => document.querySelector(".content").innerText = data); 
-//pick ordered list youb made and enter it here.
-//add ordered list: add list entry like random in lab 5
