@@ -11,7 +11,9 @@
     <div class="wrapper">
       <div class="header">UMD Bus Routes</div>
       <button class="button" onclick="loadData()">Load Some JSON</button>
-      <div class="content"></div>
+      <div class="content">
+        <ul class=
+      </div>
       <div class="footer"></div>
     </div>
   </div>
@@ -20,7 +22,6 @@
       fetch('https://api.umd.io/v0/bus/routes')
         .then(res => res.json())
         .then(res => {console.log(res)
-          // you can now work in this area
 
           return res;
         })
@@ -39,14 +40,14 @@ let contentHTML = document.querySelector(".content");
 var newLi, textNode, ulNode = document.createElement("ul");
 
 for(i in res){
-  const selectNumber = getRandomIntInclusive(0, 242);
+  const selectNumber = getRandomIntInclusive(0, 25);
   // string += "<li>"+countries[selectNumber]+"</li>";
   newLi = document.createElement("li");
   textNode = document.createTextNode(res[selectNumber].title + ", " + res[selectNumber].route_id);
   newLi.appendChild(textNode);
   ulNode.appendChild(newLi);
 };
-// contentHTML.innerHTML = "<ol>"+string+"</ol>";
+// contentHTML.innerHTML = "<ul>"+string+"</ul>";
 contentHTML.append(ulNode);
 return res;
 
